@@ -1,0 +1,6 @@
+framework module Pods_XySmartSdk {
+  umbrella header "Pods-XySmartSdk-umbrella.h"
+
+  export *
+  module * { export * }
+}

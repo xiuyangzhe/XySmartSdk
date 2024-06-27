@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		240A55E951B66ED912052665 /* Pods_XySmartSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC54961AAE21F5A0D0E7277D /* Pods_XySmartSdk.framework */; };
+		5C177B872C2975C200655878 /* SdkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C177B862C2975C200655878 /* SdkErrorType.swift */; };
+		7DA5E0D12BD8D8D3005CF746 /* XySmartSdk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0D02BD8D8D3005CF746 /* XySmartSdk.docc */; };
+		7DA5E0D72BD8D8D3005CF746 /* XySmartSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA5E0CC2BD8D8D3005CF746 /* XySmartSdk.framework */; };
+		7DA5E0DC2BD8D8D3005CF746 /* XySmartSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0DB2BD8D8D3005CF746 /* XySmartSdkTests.swift */; };
+		7DA5E0DD2BD8D8D3005CF746 /* XySmartSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DA5E0CF2BD8D8D3005CF746 /* XySmartSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DA5E0F92BD8F0C0005CF746 /* MyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0E72BD8F0C0005CF746 /* MyDelegate.swift */; };
+		7DA5E0FA2BD8F0C0005CF746 /* XySmartSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0E82BD8F0C0005CF746 /* XySmartSdk.swift */; };
+		7DA5E0FB2BD8F0C0005CF746 /* StartDeviceScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0EA2BD8F0C0005CF746 /* StartDeviceScanResult.swift */; };
+		7DA5E0FC2BD8F0C0005CF746 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0EB2BD8F0C0005CF746 /* ProductInfo.swift */; };
+		7DA5E0FD2BD8F0C0005CF746 /* ActivateDeviceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0EC2BD8F0C0005CF746 /* ActivateDeviceResult.swift */; };
+		7DA5E0FE2BD8F0C0005CF746 /* Device.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0ED2BD8F0C0005CF746 /* Device.xcdatamodeld */; };
+		7DA5E0FF2BD8F0C0005CF746 /* MqttDataMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0EF2BD8F0C0005CF746 /* MqttDataMessage.swift */; };
+		7DA5E1002BD8F0C0005CF746 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F02BD8F0C0005CF746 /* Device.swift */; };
+		7DA5E1012BD8F0C0005CF746 /* BindDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F12BD8F0C0005CF746 /* BindDeviceInfo.swift */; };
+		7DA5E1022BD8F0C0005CF746 /* MqttData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F22BD8F0C0005CF746 /* MqttData.swift */; };
+		7DA5E1032BD8F0C0005CF746 /* SdkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F32BD8F0C0005CF746 /* SdkError.swift */; };
+		7DA5E1042BD8F0C0005CF746 /* DeviceStatusInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F42BD8F0C0005CF746 /* DeviceStatusInfo.swift */; };
+		7DA5E1052BD8F0C0005CF746 /* DataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F52BD8F0C0005CF746 /* DataResult.swift */; };
+		7DA5E1062BD8F0C0005CF746 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F62BD8F0C0005CF746 /* Business.swift */; };
+		7DA5E1072BD8F0C0005CF746 /* DeviceActivateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0F82BD8F0C0005CF746 /* DeviceActivateEvent.swift */; };
+		7DA5E10A2BD8FBB7005CF746 /* XySmartSdk.swift in Headers */ = {isa = PBXBuildFile; fileRef = 7DA5E0E82BD8F0C0005CF746 /* XySmartSdk.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7DA5E0D82BD8D8D3005CF746 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA5E0C32BD8D8D3005CF746 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DA5E0CB2BD8D8D3005CF746;
+			remoteInfo = XySmartSdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C177B862C2975C200655878 /* SdkErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkErrorType.swift; sourceTree = "<group>"; };
+		751A4CEF18FAF0B6605626B8 /* Pods-XySmartSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XySmartSdk.debug.xcconfig"; path = "Target Support Files/Pods-XySmartSdk/Pods-XySmartSdk.debug.xcconfig"; sourceTree = "<group>"; };
+		7DA5E0CC2BD8D8D3005CF746 /* XySmartSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XySmartSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA5E0CF2BD8D8D3005CF746 /* XySmartSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XySmartSdk.h; sourceTree = "<group>"; };
+		7DA5E0D02BD8D8D3005CF746 /* XySmartSdk.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = XySmartSdk.docc; sourceTree = "<group>"; };
+		7DA5E0D62BD8D8D3005CF746 /* XySmartSdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XySmartSdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA5E0DB2BD8D8D3005CF746 /* XySmartSdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XySmartSdkTests.swift; sourceTree = "<group>"; };
+		7DA5E0E72BD8F0C0005CF746 /* MyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDelegate.swift; sourceTree = "<group>"; };
+		7DA5E0E82BD8F0C0005CF746 /* XySmartSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XySmartSdk.swift; sourceTree = "<group>"; };
+		7DA5E0EA2BD8F0C0005CF746 /* StartDeviceScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartDeviceScanResult.swift; sourceTree = "<group>"; };
+		7DA5E0EB2BD8F0C0005CF746 /* ProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
+		7DA5E0EC2BD8F0C0005CF746 /* ActivateDeviceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivateDeviceResult.swift; sourceTree = "<group>"; };
+		7DA5E0EE2BD8F0C0005CF746 /* Device.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Device.xcdatamodel; sourceTree = "<group>"; };
+		7DA5E0EF2BD8F0C0005CF746 /* MqttDataMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MqttDataMessage.swift; sourceTree = "<group>"; };
+		7DA5E0F02BD8F0C0005CF746 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		7DA5E0F12BD8F0C0005CF746 /* BindDeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindDeviceInfo.swift; sourceTree = "<group>"; };
+		7DA5E0F22BD8F0C0005CF746 /* MqttData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MqttData.swift; sourceTree = "<group>"; };
+		7DA5E0F32BD8F0C0005CF746 /* SdkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkError.swift; sourceTree = "<group>"; };
+		7DA5E0F42BD8F0C0005CF746 /* DeviceStatusInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceStatusInfo.swift; sourceTree = "<group>"; };
+		7DA5E0F52BD8F0C0005CF746 /* DataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResult.swift; sourceTree = "<group>"; };
+		7DA5E0F62BD8F0C0005CF746 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		7DA5E0F82BD8F0C0005CF746 /* DeviceActivateEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceActivateEvent.swift; sourceTree = "<group>"; };
+		91D410BA7C7AD0347DE1E091 /* Pods-XySmartSdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XySmartSdk.release.xcconfig"; path = "Target Support Files/Pods-XySmartSdk/Pods-XySmartSdk.release.xcconfig"; sourceTree = "<group>"; };
+		EC54961AAE21F5A0D0E7277D /* Pods_XySmartSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XySmartSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7DA5E0C92BD8D8D3005CF746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				240A55E951B66ED912052665 /* Pods_XySmartSdk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA5E0D32BD8D8D3005CF746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA5E0D72BD8D8D3005CF746 /* XySmartSdk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		450525F5D1AA5C7FAB777518 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				751A4CEF18FAF0B6605626B8 /* Pods-XySmartSdk.debug.xcconfig */,
+				91D410BA7C7AD0347DE1E091 /* Pods-XySmartSdk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		785D24F9EB14D0BE222F8CD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC54961AAE21F5A0D0E7277D /* Pods_XySmartSdk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DA5E0C22BD8D8D2005CF746 = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0CE2BD8D8D3005CF746 /* XySmartSdk */,
+				7DA5E0DA2BD8D8D3005CF746 /* XySmartSdkTests */,
+				7DA5E0CD2BD8D8D3005CF746 /* Products */,
+				450525F5D1AA5C7FAB777518 /* Pods */,
+				785D24F9EB14D0BE222F8CD1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7DA5E0CD2BD8D8D3005CF746 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0CC2BD8D8D3005CF746 /* XySmartSdk.framework */,
+				7DA5E0D62BD8D8D3005CF746 /* XySmartSdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DA5E0CE2BD8D8D3005CF746 /* XySmartSdk */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0CF2BD8D8D3005CF746 /* XySmartSdk.h */,
+				7DA5E0E62BD8F0C0005CF746 /* smart */,
+				7DA5E0D02BD8D8D3005CF746 /* XySmartSdk.docc */,
+			);
+			path = XySmartSdk;
+			sourceTree = "<group>";
+		};
+		7DA5E0DA2BD8D8D3005CF746 /* XySmartSdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0DB2BD8D8D3005CF746 /* XySmartSdkTests.swift */,
+			);
+			path = XySmartSdkTests;
+			sourceTree = "<group>";
+		};
+		7DA5E0E62BD8F0C0005CF746 /* smart */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0E72BD8F0C0005CF746 /* MyDelegate.swift */,
+				7DA5E0E82BD8F0C0005CF746 /* XySmartSdk.swift */,
+				7DA5E0E92BD8F0C0005CF746 /* model */,
+				7DA5E0F62BD8F0C0005CF746 /* Business.swift */,
+				7DA5E0F72BD8F0C0005CF746 /* event */,
+			);
+			path = smart;
+			sourceTree = "<group>";
+		};
+		7DA5E0E92BD8F0C0005CF746 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0EA2BD8F0C0005CF746 /* StartDeviceScanResult.swift */,
+				7DA5E0EB2BD8F0C0005CF746 /* ProductInfo.swift */,
+				7DA5E0EC2BD8F0C0005CF746 /* ActivateDeviceResult.swift */,
+				7DA5E0ED2BD8F0C0005CF746 /* Device.xcdatamodeld */,
+				7DA5E0EF2BD8F0C0005CF746 /* MqttDataMessage.swift */,
+				7DA5E0F02BD8F0C0005CF746 /* Device.swift */,
+				7DA5E0F12BD8F0C0005CF746 /* BindDeviceInfo.swift */,
+				7DA5E0F22BD8F0C0005CF746 /* MqttData.swift */,
+				7DA5E0F32BD8F0C0005CF746 /* SdkError.swift */,
+				7DA5E0F42BD8F0C0005CF746 /* DeviceStatusInfo.swift */,
+				7DA5E0F52BD8F0C0005CF746 /* DataResult.swift */,
+				5C177B862C2975C200655878 /* SdkErrorType.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7DA5E0F72BD8F0C0005CF746 /* event */ = {
+			isa = PBXGroup;
+			children = (
+				7DA5E0F82BD8F0C0005CF746 /* DeviceActivateEvent.swift */,
+			);
+			path = event;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7DA5E0C72BD8D8D3005CF746 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA5E10A2BD8FBB7005CF746 /* XySmartSdk.swift in Headers */,
+				7DA5E0DD2BD8D8D3005CF746 /* XySmartSdk.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7DA5E0CB2BD8D8D3005CF746 /* XySmartSdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DA5E0E02BD8D8D3005CF746 /* Build configuration list for PBXNativeTarget "XySmartSdk" */;
+			buildPhases = (
+				50F62CDD61E578B6D0EA2784 /* [CP] Check Pods Manifest.lock */,
+				7DA5E0C72BD8D8D3005CF746 /* Headers */,
+				7DA5E0C82BD8D8D3005CF746 /* Sources */,
+				7DA5E0C92BD8D8D3005CF746 /* Frameworks */,
+				7DA5E0CA2BD8D8D3005CF746 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XySmartSdk;
+			productName = XySmartSdk;
+			productReference = 7DA5E0CC2BD8D8D3005CF746 /* XySmartSdk.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7DA5E0D52BD8D8D3005CF746 /* XySmartSdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DA5E0E32BD8D8D3005CF746 /* Build configuration list for PBXNativeTarget "XySmartSdkTests" */;
+			buildPhases = (
+				7DA5E0D22BD8D8D3005CF746 /* Sources */,
+				7DA5E0D32BD8D8D3005CF746 /* Frameworks */,
+				7DA5E0D42BD8D8D3005CF746 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DA5E0D92BD8D8D3005CF746 /* PBXTargetDependency */,
+			);
+			name = XySmartSdkTests;
+			productName = XySmartSdkTests;
+			productReference = 7DA5E0D62BD8D8D3005CF746 /* XySmartSdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7DA5E0C32BD8D8D3005CF746 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					7DA5E0CB2BD8D8D3005CF746 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					7DA5E0D52BD8D8D3005CF746 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 7DA5E0C62BD8D8D3005CF746 /* Build configuration list for PBXProject "XySmartSdk" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7DA5E0C22BD8D8D2005CF746;
+			productRefGroup = 7DA5E0CD2BD8D8D3005CF746 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7DA5E0CB2BD8D8D3005CF746 /* XySmartSdk */,
+				7DA5E0D52BD8D8D3005CF746 /* XySmartSdkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7DA5E0CA2BD8D8D3005CF746 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA5E0D42BD8D8D3005CF746 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50F62CDD61E578B6D0EA2784 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XySmartSdk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7DA5E0C82BD8D8D3005CF746 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA5E0FB2BD8F0C0005CF746 /* StartDeviceScanResult.swift in Sources */,
+				7DA5E0F92BD8F0C0005CF746 /* MyDelegate.swift in Sources */,
+				7DA5E0D12BD8D8D3005CF746 /* XySmartSdk.docc in Sources */,
+				7DA5E1062BD8F0C0005CF746 /* Business.swift in Sources */,
+				7DA5E1042BD8F0C0005CF746 /* DeviceStatusInfo.swift in Sources */,
+				7DA5E1002BD8F0C0005CF746 /* Device.swift in Sources */,
+				7DA5E1012BD8F0C0005CF746 /* BindDeviceInfo.swift in Sources */,
+				5C177B872C2975C200655878 /* SdkErrorType.swift in Sources */,
+				7DA5E1072BD8F0C0005CF746 /* DeviceActivateEvent.swift in Sources */,
+				7DA5E1052BD8F0C0005CF746 /* DataResult.swift in Sources */,
+				7DA5E1032BD8F0C0005CF746 /* SdkError.swift in Sources */,
+				7DA5E0FD2BD8F0C0005CF746 /* ActivateDeviceResult.swift in Sources */,
+				7DA5E1022BD8F0C0005CF746 /* MqttData.swift in Sources */,
+				7DA5E0FC2BD8F0C0005CF746 /* ProductInfo.swift in Sources */,
+				7DA5E0FF2BD8F0C0005CF746 /* MqttDataMessage.swift in Sources */,
+				7DA5E0FA2BD8F0C0005CF746 /* XySmartSdk.swift in Sources */,
+				7DA5E0FE2BD8F0C0005CF746 /* Device.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA5E0D22BD8D8D3005CF746 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA5E0DC2BD8D8D3005CF746 /* XySmartSdkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DA5E0D92BD8D8D3005CF746 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DA5E0CB2BD8D8D3005CF746 /* XySmartSdk */;
+			targetProxy = 7DA5E0D82BD8D8D3005CF746 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7DA5E0DE2BD8D8D3005CF746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7DA5E0DF2BD8D8D3005CF746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7DA5E0E12BD8D8D3005CF746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 751A4CEF18FAF0B6605626B8 /* Pods-XySmartSdk.debug.xcconfig */;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				EXCLUDED_ARCHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.XySmartSdk;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7DA5E0E22BD8D8D3005CF746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D410BA7C7AD0347DE1E091 /* Pods-XySmartSdk.release.xcconfig */;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.XySmartSdk;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7DA5E0E42BD8D8D3005CF746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J33H5U6JYZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.XySmartSdkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7DA5E0E52BD8D8D3005CF746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J33H5U6JYZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = abc.XySmartSdkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7DA5E0C62BD8D8D3005CF746 /* Build configuration list for PBXProject "XySmartSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA5E0DE2BD8D8D3005CF746 /* Debug */,
+				7DA5E0DF2BD8D8D3005CF746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DA5E0E02BD8D8D3005CF746 /* Build configuration list for PBXNativeTarget "XySmartSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA5E0E12BD8D8D3005CF746 /* Debug */,
+				7DA5E0E22BD8D8D3005CF746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DA5E0E32BD8D8D3005CF746 /* Build configuration list for PBXNativeTarget "XySmartSdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA5E0E42BD8D8D3005CF746 /* Debug */,
+				7DA5E0E52BD8D8D3005CF746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7DA5E0ED2BD8F0C0005CF746 /* Device.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7DA5E0EE2BD8F0C0005CF746 /* Device.xcdatamodel */,
+			);
+			currentVersion = 7DA5E0EE2BD8F0C0005CF746 /* Device.xcdatamodel */;
+			path = Device.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7DA5E0C32BD8D8D3005CF746 /* Project object */;
+}
