@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'XySmartSdk'
-    s.version          = '1.0.2'
+    s.version          = '1.0.0'
     s.summary          = 'xy smart device sdk'
     s.description      = <<-DESC
                          xy smart device sdk.
@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/xiuyangzhe/XySmartSdk'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Rocky' => '769865744@qq.com' }
-    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :tag => s.version.to_s }
+    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :tag => "v1.0.0" }
   
-    s.ios.deployment_target = '17.2'
+    s.ios.deployment_target = '12.0'
   
-    s.source_files = 'XySmartSdk/XySmartSdk/**/*'
-    s.public_header_files = 'XySmartSdk/XySmartSdk/*.h'
+    s.source_files = 'XySmartSdk/**/*.swift'
+    s.public_header_files = 'XySmartSdk/*.h'
   
     # 如果是动态库
     # s.vendored_frameworks = 'XySmartSdk.framework'
