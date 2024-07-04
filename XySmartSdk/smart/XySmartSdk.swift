@@ -132,7 +132,12 @@ public class XySmartSdk: NSObject {
         })
     }
     
+    static var bleUtil:BleUtil?
+    
     public static func activateXyWIFIDevice(ssid:String,password:String){
-        var bleUtil = BleUtil();
+        if(bleUtil == nil){
+            bleUtil = BleUtil();
+        }
+        
     }
 }
