@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-    s.name             = 'XySmartSdk'
-    s.version          = '1.0.0'
+    s.name             = 'xysmartsdk'
+    s.version          = '1.0.1'
     s.summary          = 'xy smart device sdk'
     s.description      = <<-DESC
                          xy smart device sdk.
@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/xiuyangzhe/XySmartSdk'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Rocky' => '769865744@qq.com' }
-    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :tag => "v1.0.0" }
+    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "966f38801be2a5b545ef2eae23312d58de998ab2" } # :tag => "v1.0.0" 
   
     s.ios.deployment_target = '12.0'
   
     s.source_files = 'XySmartSdk/**/*.swift'
-    s.public_header_files = 'XySmartSdk/*.h'
+    s.public_header_files = 'XySmartSdk/**/*.h'
   
     # 如果是动态库
     # s.vendored_frameworks = 'XySmartSdk.framework'
@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
     s.dependency 'CocoaMQTT'
     
     # 设置swift版本（如果适用）
-    s.swift_version = '5.9'
+    # s.swift_version = '5.9'
   end
   
