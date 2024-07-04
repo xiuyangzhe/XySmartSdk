@@ -9,7 +9,7 @@ DEPENDENCIES:
   - CocoaMQTT
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - CocoaMQTT
     - MqttCocoaAsyncSocket
 
@@ -17,6 +17,6 @@ SPEC CHECKSUMS:
   CocoaMQTT: 1f206228b29318eabdacad0c2e4e88575922c27a
   MqttCocoaAsyncSocket: 77d3b74f76228dd5a05d1f9526eab101d415b30c
 
-PODFILE CHECKSUM: f1528b0e7c2f1306e4c4c7f43bf5e493658a5c2c
+PODFILE CHECKSUM: 83d8d67dfd79564abb0bbf4b93b3509483df5477
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.13.0
