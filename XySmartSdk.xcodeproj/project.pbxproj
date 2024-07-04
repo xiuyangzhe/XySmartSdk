@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		240A55E951B66ED912052665 /* Pods_XySmartSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC54961AAE21F5A0D0E7277D /* Pods_XySmartSdk.framework */; };
 		5C177B872C2975C200655878 /* SdkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C177B862C2975C200655878 /* SdkErrorType.swift */; };
+		5CAB63812C36D9ED009178EF /* BleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB63802C36D9ED009178EF /* BleUtil.swift */; };
 		7DA5E0D12BD8D8D3005CF746 /* XySmartSdk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0D02BD8D8D3005CF746 /* XySmartSdk.docc */; };
 		7DA5E0D72BD8D8D3005CF746 /* XySmartSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA5E0CC2BD8D8D3005CF746 /* XySmartSdk.framework */; };
 		7DA5E0DC2BD8D8D3005CF746 /* XySmartSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA5E0DB2BD8D8D3005CF746 /* XySmartSdkTests.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		5C177B862C2975C200655878 /* SdkErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkErrorType.swift; sourceTree = "<group>"; };
+		5CAB63802C36D9ED009178EF /* BleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleUtil.swift; sourceTree = "<group>"; };
 		751A4CEF18FAF0B6605626B8 /* Pods-XySmartSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XySmartSdk.debug.xcconfig"; path = "Target Support Files/Pods-XySmartSdk/Pods-XySmartSdk.debug.xcconfig"; sourceTree = "<group>"; };
 		7DA5E0CC2BD8D8D3005CF746 /* XySmartSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XySmartSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DA5E0CF2BD8D8D3005CF746 /* XySmartSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XySmartSdk.h; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				7DA5E0E92BD8F0C0005CF746 /* model */,
 				7DA5E0F62BD8F0C0005CF746 /* Business.swift */,
 				7DA5E0F72BD8F0C0005CF746 /* event */,
+				5CAB63802C36D9ED009178EF /* BleUtil.swift */,
 			);
 			path = smart;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				7DA5E1032BD8F0C0005CF746 /* SdkError.swift in Sources */,
 				7DA5E0FD2BD8F0C0005CF746 /* ActivateDeviceResult.swift in Sources */,
 				7DA5E1022BD8F0C0005CF746 /* MqttData.swift in Sources */,
+				5CAB63812C36D9ED009178EF /* BleUtil.swift in Sources */,
 				7DA5E0FC2BD8F0C0005CF746 /* ProductInfo.swift in Sources */,
 				7DA5E0FF2BD8F0C0005CF746 /* MqttDataMessage.swift in Sources */,
 				7DA5E0FA2BD8F0C0005CF746 /* XySmartSdk.swift in Sources */,

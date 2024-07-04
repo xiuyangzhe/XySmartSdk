@@ -131,4 +131,8 @@ public class XySmartSdk: NSObject {
             onFailed(e)
         })
     }
+    
+    public static func activateXyWIFIDevice(ssid:String,password:String){
+        var bleUtil = BleUtil();
+    }
 }
