@@ -9,8 +9,8 @@ import Foundation
 import CocoaMQTT
 
 class Business: NSObject {
-    private var clientId: String = ""
-    private var clientSecret: String = ""
+    public var clientId: String = ""
+    public var clientSecret: String = ""
     
     public static var Instance = Business()
     
@@ -310,6 +310,56 @@ class Business: NSObject {
             }
         }
         
+        // 开始任务
+        task.resume()
+    }
+    func getMqttConfig(onSuccess: @escaping (MqttConfig) -> Void = { _ in  }, onFailed: @escaping (SdkError) -> Void = { _ in }){
+        // 创建URL对象
+        let url = URL(string: serverUrl + "/api/appSdk/mqttConfig")!
+
+        // 创建URLSession对象
+        let session = URLSession.shared
+
+        // 创建请求对象
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(clientId, forHTTPHeaderField: "clientId")
+        request.addValue(clientSecret, forHTTPHeaderField: "clientSecret")
+        request.addValue(token, forHTTPHeaderField: "Authorization")
+
+        // 添加请求头
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        // 创建一个数据任务
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                onFailed(SdkError(code: 5000, message: "request server error"))
+            } else if let data = data {
+                // 将返回的数据解析为JSON对象
+                do{
+//                    if let responseString = String(data: data, encoding: .utf8) {
+//                            // 在这里使用转换后的字符串
+//                        print("data: \(responseString)")
+//                    }
+                    let decoder = JSONDecoder()
+                    let result: DataResult<MqttConfig> = try decoder.decode(DataResult<MqttConfig>.self,from: data)
+                    if let success = result.success {
+                        if(success){
+                            onSuccess(result.data!)
+                        }else{
+                            let message = result.message
+                            onFailed(SdkError(code: result.code!, message: message!))
+                        }
+                    }else{
+                        onFailed(SdkError(code: 5000, message: "request server error"))
+                    }
+                    return
+                } catch let error {
+                    onFailed(SdkError(code: 5000, message: "request server error"))
+                }
+            }
+        }
+
         // 开始任务
         task.resume()
     }

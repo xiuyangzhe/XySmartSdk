@@ -134,10 +134,23 @@ public class XySmartSdk: NSObject {
     
     static var bleUtil:BleUtil?
     
-    public static func activateXyWIFIDevice(ssid:String,password:String){
-        if(bleUtil == nil){
-            bleUtil = BleUtil();
-        }
+    public static func activateXyWIFIDevice(ssid:String,password:String,homeId:String){
+        bleUtil = BleUtil();
+        bleUtil?.startActive(ssid:ssid,password:password,homeId:homeId,onSuccess: {
+            
+        }, onAcviveFailed: { SdkError in
+            
+        })
+        
+    }
+    
+    public static func activateXyDevice(homeId:String){
+        bleUtil = BleUtil();
+        bleUtil?.startActive(ssid:nil,password:nil,homeId:homeId,onSuccess: {
+            
+        }, onAcviveFailed: { SdkError in
+            
+        })
         
     }
 }
