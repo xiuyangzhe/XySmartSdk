@@ -23,6 +23,8 @@ enum SdkErrorType {
     case DeviceNotFind
     case DeviceTypeError
     case DeviceActivatedError
+    case BleConnectError
+    case OtherError
     
     var code: Int {
         switch self {
@@ -49,7 +51,12 @@ enum SdkErrorType {
         
         case .DeviceActivatedError:
             return 6001
+        case .BleConnectError:
+            return 3002
+        case .OtherError:
+            return 9999
         }
+        
     }
     
     var message: String {
@@ -70,6 +77,10 @@ enum SdkErrorType {
             return "device type error"
         case .DeviceActivatedError:
             return "device is activated"
+        case .BleConnectError:
+            return "connect ble error"
+        case .OtherError:
+            return "other error"
         }
     }
 }

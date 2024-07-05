@@ -48,7 +48,8 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         if(isOpen){
             startScan()
         }else{
-            onAcviveFailed(SdkError.init(code: 3002,message:"打开蓝牙失败"))
+            let error = SdkError(code:SdkErrorType.BleConnectError.code,message: "打开蓝牙失败")
+            onAcviveFailed(error)
         }
     }
     
@@ -148,7 +149,9 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
                     writeBuffer(buffer: dataView, offset: 153, str: jsonString)
                 }
             }catch{
-                print("Failed to convert dictionary to JSON: \(error)")
+                NSLog("Failed to convert dictionary to JSON: \(error)")
+                let error = SdkError(code:SdkErrorType.OtherError.code,message: SdkErrorType.OtherError.message)
+                onAcviveFailed?(error)
             }
             
             
@@ -160,7 +163,10 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
                        writeBuffer(buffer: dataView, offset: 53, str: jsonString)
                 }
             }catch{
-                print("Failed to convert dictionary to JSON: \(error)")
+                NSLog("Failed to convert dictionary to JSON: \(error)")
+                
+                let error = SdkError(code:SdkErrorType.OtherError.code,message: SdkErrorType.OtherError.message)
+                onAcviveFailed?(error)
             }
         }
         
