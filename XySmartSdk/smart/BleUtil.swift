@@ -19,7 +19,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if(central.state == .poweredOn){
             // open handle
-            
+            NSLog("ble is open")
             isOpen = true
         }else{
             isOpen = false
@@ -38,7 +38,13 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         manager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    func startActive(ssid:String?,password:String?,homeId:String,onSuccess: (() -> Void),onAcviveFailed: ((SdkError) -> Void)){
+    func startActive(ssid:String?,password:String?,homeId:String,onSuccess: @escaping (() -> Void),onAcviveFailed: @escaping ((SdkError) -> Void)){
+        self.onActiveSuccess = onSuccess
+        self.onAcviveFailed = onAcviveFailed
+        self.ssid = ssid
+        self.password = password
+        self.homeId = homeId
+        
         if(isOpen){
             startScan()
         }else{
@@ -83,8 +89,8 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         }
     }
     
-    var ssid: String = "meeting"
-    var password: String = "131415926"
+    var ssid: String?
+    var password: String?
     var activeResultHeader = "12127733160E9C48".lowercased();
     var homeId: String?
     var onActiveSuccess: (() -> Void)?
@@ -113,7 +119,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         
         
         // write header
-        if !ssid.isEmpty {
+        if ssid != nil && !ssid!.isEmpty {
             for (index, value) in self.wifiHeader.enumerated() {
                 dataView[index] = value
             }
@@ -127,12 +133,12 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         let devId = "testid" // Replace with actual value
         writeBuffer(buffer: dataView, offset:3, str: devId)
         
-        if !ssid.isEmpty {
+        if ssid != nil && !ssid!.isEmpty {
             // write wifiSsid 35
-            writeBuffer(buffer: dataView, offset: 53, str: ssid)
+            writeBuffer(buffer: dataView, offset: 53, str: ssid!)
             
             // write wifiPassword 65
-            writeBuffer(buffer: dataView, offset: 88, str: password)
+            writeBuffer(buffer: dataView, offset: 88, str: password!)
             
             // write mqtt json 320
             
@@ -166,7 +172,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         buffer.deallocate()
     }
     
-    func writeMqttConfig(ssid: String, password: String) {
+    func writeMqttConfig() {
         
         Business.Instance.getMqttConfig(onSuccess: { mqttConfig in
             self.handleWriteMqttConfig(mqttConfig:mqttConfig)
@@ -183,7 +189,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
             if(hexString.starts(with: "460bf3")){
                 NSLog("goto write mqttconfig")
                 
-                writeMqttConfig(ssid: "meeting",password: "131415926")
+                writeMqttConfig()
             }
             if(hexString.starts(with: activeResultHeader)){
                 let startIndex = hexString.index(hexString.startIndex, offsetBy: activeResultHeader.count)

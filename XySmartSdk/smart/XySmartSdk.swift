@@ -134,23 +134,54 @@ public class XySmartSdk: NSObject {
     
     static var bleUtil:BleUtil?
     
-    public static func activateXyWIFIDevice(ssid:String,password:String,homeId:String){
-        bleUtil = BleUtil();
-        bleUtil?.startActive(ssid:ssid,password:password,homeId:homeId,onSuccess: {
+    public static var inActive = false
+    
+    private static func clearActiveConfig(){
+        self.inActive = false
+        bleUtil?.ssid = nil
+        bleUtil?.password = nil
+        bleUtil?.homeId = nil
+        bleUtil?.onActiveSuccess = nil
+        bleUtil?.onAcviveFailed = nil
+    }
+    
+    public static func activateXyWIFIDevice(ssid:String?,password:String?,homeId:String,  onSuccess: @escaping () -> Void = {  },
+                                            onFailed: @escaping (SdkError) -> Void = { _ in }){
+        let thread = Thread(){
+            bleUtil = BleUtil();
+            bleUtil?.startActive(ssid:nil,password:nil,homeId:homeId,onSuccess: {
+                clearActiveConfig()
+                onSuccess()
+            }, onAcviveFailed: { e in
+                clearActiveConfig()
+                onFailed(e)
+            })
             
-        }, onAcviveFailed: { SdkError in
-            
-        })
+            let lastTime = Date().timeIntervalSince1970
+            while(true){
+                let nowTime = Date().timeIntervalSince1970
+                if((nowTime - lastTime) * 1000 > 60 * 1000 && self.inActive){
+                    let e = SdkError(code: SdkErrorType.TIMEOUT.code, message: "active time out")
+                    NSLog("active time out")
+                    onFailed(e)
+                    break;
+                }else if(self.inActive){
+                    Thread.sleep(forTimeInterval: 1.0)
+                    NSLog("in active")
+                }
+                if(!self.inActive){
+                    break;
+                }
+            }
+        }
+        thread.start()
         
     }
     
-    public static func activateXyDevice(homeId:String){
-        bleUtil = BleUtil();
-        bleUtil?.startActive(ssid:nil,password:nil,homeId:homeId,onSuccess: {
-            
-        }, onAcviveFailed: { SdkError in
-            
-        })
-        
+    
+    public static func activateXyDevice(homeId:String,  onSuccess: @escaping () -> Void = {  },
+                                        onFailed: @escaping (SdkError) -> Void = { _ in }){
+        activateXyWIFIDevice(ssid: nil,password: nil,homeId:homeId,onSuccess:onSuccess,onFailed:onFailed)
+
     }
 }
