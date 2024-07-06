@@ -251,7 +251,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if(peripheral.name != nil){
-            NSLog("ble is didDiscover:"))
+            NSLog("ble is didDiscover:")
             
             if(peripheral.name=="xyiotgatef010591df12"){
                 NSLog("find device")

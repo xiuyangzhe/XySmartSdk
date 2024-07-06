@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'xysmartsdk'
-    s.version          = '1.0.7'
+    s.version          = '1.0.8'
     s.summary          = 'xy smart device sdk'
     s.description      = <<-DESC
                          xy smart device sdk.
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/xiuyangzhe/XySmartSdk'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Rocky' => '769865744@qq.com' }
-    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "bbd566eff8b6fa612954090d14f0b7b9cbb2a362" } # :tag => "v1.0.0" 
+    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "56ba3c012607290e9884665b9bc2f23d1dd23c21" } # :tag => "v1.0.0" 
   
     s.ios.deployment_target = '12.0'
   
