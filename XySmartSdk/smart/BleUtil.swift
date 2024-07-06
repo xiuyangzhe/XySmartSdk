@@ -120,7 +120,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         
         
         // write header
-        if ssid != nil && !ssid!.isEmpty {
+        if self.ssid != nil && !self.ssid!.isEmpty {
             for (index, value) in self.wifiHeader.enumerated() {
                 dataView[index] = value
             }
@@ -191,7 +191,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let data = characteristic.value {
             let hexString = data.hexadecimalString().lowercased()
-            NSLog("Characteristic value: \(hexString)")
+//            NSLog("Characteristic value: \(hexString)")
             if(hexString.starts(with: "460bf3")){
                 NSLog("goto write mqttconfig")
                 
@@ -200,7 +200,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
             if(hexString.starts(with: activeResultHeader)){
                 let startIndex = hexString.index(hexString.startIndex, offsetBy: activeResultHeader.count)
                 let substring = hexString[startIndex...]
-                NSLog("goto avtive device "+substring)
+                NSLog("goto avtive device ")
                 let deviceId = substring.uppercased()
                 
                 Business.Instance.activeDevice(uuid: deviceId, homeId: self.homeId,onSuccess: { d in
@@ -236,13 +236,13 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         peripheral.services?.forEach({ service in
             
-            NSLog("ble find service:"+service.uuid.uuidString)
+            NSLog("ble find service:")
             peripheral.discoverCharacteristics(nil, for: service)
         })
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        NSLog("ble connect:"+(peripheral.name!))
+        NSLog("ble connect:")
         
         peripheral.delegate = self
         // 连接蓝牙设备的代理
@@ -251,7 +251,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if(peripheral.name != nil){
-            NSLog("ble is didDiscover:"+(peripheral.name!))
+            NSLog("ble is didDiscover:"))
             
             if(peripheral.name=="xyiotgatef010591df12"){
                 NSLog("find device")

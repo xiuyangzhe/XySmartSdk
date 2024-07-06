@@ -151,7 +151,7 @@ public class XySmartSdk: NSObject {
             bleUtil = BleUtil();
             Thread.sleep(forTimeInterval: 1.0)
             
-            bleUtil?.startActive(ssid:nil,password:nil,homeId:homeId,onSuccess: { d in
+            bleUtil?.startActive(ssid:ssid,password:password,homeId:homeId,onSuccess: { d in
                 clearActiveConfig()
                 onSuccess(d)
             }, onAcviveFailed: { e in

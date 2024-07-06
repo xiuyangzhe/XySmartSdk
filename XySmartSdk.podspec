@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/xiuyangzhe/XySmartSdk'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Rocky' => '769865744@qq.com' }
-    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "b7e30932bb2894547c98b0a96a531264deb25919" } # :tag => "v1.0.0" 
+    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "bbd566eff8b6fa612954090d14f0b7b9cbb2a362" } # :tag => "v1.0.0" 
   
     s.ios.deployment_target = '12.0'
   
@@ -28,4 +28,6 @@ Pod::Spec.new do |s|
     # 设置swift版本（如果适用）
     # s.swift_version = '5.9'
   end
+
+  # pod trunk push xysmartsdk.podspec --verbose --allow-warnings
   
