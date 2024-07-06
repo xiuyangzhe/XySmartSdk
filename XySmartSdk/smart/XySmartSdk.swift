@@ -26,7 +26,7 @@ public class XySmartSdk: NSObject {
           onSuccess: @escaping () -> Void = {  },
           onFailed: @escaping (SdkError) -> Void = { _ in }
     ){
-        Business.Instance.activeDevice(uuid: uuid, homeId: homeId,onSuccess: {
+        Business.Instance.activeDevice(uuid: uuid, homeId: homeId,onSuccess: { _ in
             onSuccess()
         },onFailed:{e in
             onFailed(e)
@@ -181,7 +181,7 @@ public class XySmartSdk: NSObject {
     }
     
     
-    public static func activateXyDevice(homeId:String,  onSuccess: @escaping () -> Void = {  },
+    public static func activateXyDevice(homeId:String,  onSuccess: @escaping (Device) -> Void = { _ in  },
                                         onFailed: @escaping (SdkError) -> Void = { _ in }){
         activateXyWIFIDevice(ssid: nil,password: nil,homeId:homeId,onSuccess:onSuccess,onFailed:onFailed)
 
