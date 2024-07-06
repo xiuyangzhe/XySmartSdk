@@ -145,13 +145,15 @@ public class XySmartSdk: NSObject {
         bleUtil?.onAcviveFailed = nil
     }
     
-    public static func activateXyWIFIDevice(ssid:String?,password:String?,homeId:String,  onSuccess: @escaping () -> Void = {  },
+    public static func activateXyWIFIDevice(ssid:String?,password:String?,homeId:String,  onSuccess: @escaping (Device) -> Void = { _ in },
                                             onFailed: @escaping (SdkError) -> Void = { _ in }){
         let thread = Thread(){
             bleUtil = BleUtil();
-            bleUtil?.startActive(ssid:nil,password:nil,homeId:homeId,onSuccess: {
+            Thread.sleep(forTimeInterval: 1.0)
+            
+            bleUtil?.startActive(ssid:nil,password:nil,homeId:homeId,onSuccess: { d in
                 clearActiveConfig()
-                onSuccess()
+                onSuccess(d)
             }, onAcviveFailed: { e in
                 clearActiveConfig()
                 onFailed(e)

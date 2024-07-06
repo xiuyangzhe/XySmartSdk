@@ -98,7 +98,7 @@ class Business: NSObject {
         task.resume()
     }
     
-    func activeDevice(uuid: String, homeId: String?, onSuccess: @escaping () -> Void = {  }, onFailed: @escaping (SdkError) -> Void = { _ in }){
+    func activeDevice(uuid: String, homeId: String?, onSuccess: @escaping (Device) -> Void = { _ in  }, onFailed: @escaping (SdkError) -> Void = { _ in }){
         
         // 创建URL对象
         let url = URL(string: serverUrl + "/api/appSdk/activate")!
@@ -135,22 +135,17 @@ class Business: NSObject {
 //                        print("data: \(responseString)")
 //                    }
                     
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        if let code = json["code"] as? Int {
-                            if(code != 200){
-                                let message = json["message"] as? String
-                                onFailed(SdkError(code: code, message: message!))
-                                return
-                            }
+                    let decoder = JSONDecoder()
+                    let result: DataResult<ActivateDeviceResult> = try decoder.decode(DataResult<ActivateDeviceResult>.self,from: data)
+                    if let success = result.success {
+                        if(success){
+                            onSuccess(result.data!.device!)
+                        }else{
+                            let message = result.message
+                            onFailed(SdkError(code: result.code!, message: message!))
                         }
-                        // 获取 "data" 字典中的值
-                        if let data = json["data"] as? [String: Any] {
-                            onSuccess()
-                            return
-                        }
-                        
+                    }else{
                         onFailed(SdkError(code: 5000, message: "request server error"))
-                        
                     }
                 } catch let error {
                     onFailed(SdkError(code: 5000, message: "request server error"))

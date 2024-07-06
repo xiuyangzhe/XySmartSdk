@@ -38,7 +38,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
         manager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    func startActive(ssid:String?,password:String?,homeId:String,onSuccess: @escaping (() -> Void),onAcviveFailed: @escaping ((SdkError) -> Void)){
+    func startActive(ssid:String?,password:String?,homeId:String,onSuccess: @escaping ((Device) -> Void),onAcviveFailed: @escaping ((SdkError) -> Void)){
         self.onActiveSuccess = onSuccess
         self.onAcviveFailed = onAcviveFailed
         self.ssid = ssid
@@ -94,7 +94,7 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     var password: String?
     var activeResultHeader = "12127733160E9C48".lowercased();
     var homeId: String?
-    var onActiveSuccess: (() -> Void)?
+    var onActiveSuccess: ((Device) -> Void)?
     var onAcviveFailed: ((SdkError) -> Void)?
     
     func handleWriteMqttConfig(mqttConfig: MqttConfig){
@@ -203,8 +203,8 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
                 NSLog("goto avtive device "+substring)
                 let deviceId = substring.uppercased()
                 
-                Business.Instance.activeDevice(uuid: deviceId, homeId: self.homeId,onSuccess: {
-                    self.onActiveSuccess?()
+                Business.Instance.activeDevice(uuid: deviceId, homeId: self.homeId,onSuccess: { d in
+                    self.onActiveSuccess?(d)
                 },onFailed:{e in
                     self.onAcviveFailed?(e)
                 })

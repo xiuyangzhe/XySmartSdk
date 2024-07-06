@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/xiuyangzhe/XySmartSdk'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Rocky' => '769865744@qq.com' }
-    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "2642feba55e09153e4f38ec59566f5019bd8f3cc" } # :tag => "v1.0.0" 
+    s.source           = { :git => 'https://github.com/xiuyangzhe/XySmartSdk.git', :commit => "2255ff8236bbda2e408460e6d4c3c9ef077e079b" } # :tag => "v1.0.0" 
   
     s.ios.deployment_target = '12.0'
   
