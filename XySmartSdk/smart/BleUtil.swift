@@ -59,9 +59,18 @@ class BleUtil: NSObject,CBCentralManagerDelegate,CBPeripheralDelegate{
     func startScan(){
         manager?.scanForPeripherals(withServices: nil)
     }
+    func clear(){
+        stopScan()
+        if(peripheral != nil){
+            manager!.cancelPeripheralConnection(peripheral!)
+        }
+    }
     
     func stopScan(){
-        manager?.stopScan()
+        
+        if(manager!.isScanning){
+            manager?.stopScan()
+        }
     }
     
     var wifiHeader: [UInt8] = [ 0x03, 0xca, 0x20]

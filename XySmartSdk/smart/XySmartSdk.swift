@@ -143,6 +143,7 @@ public class XySmartSdk: NSObject {
         bleUtil?.homeId = nil
         bleUtil?.onActiveSuccess = nil
         bleUtil?.onAcviveFailed = nil
+        bleUtil?.clear()
     }
     
     public static func activateXyWIFIDevice(ssid:String?,password:String?,homeId:String,  onSuccess: @escaping (Device) -> Void = { _ in },
