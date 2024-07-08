@@ -29,6 +29,34 @@ class MyDelegate: CocoaMQTT5Delegate{
         print("mqtt5 didPublishRec")
     }
     
+    func activeDeice(uuid: String, model:String){
+        var bindDevice = BindDeviceInfo()
+        bindDevice.uuid = uuid
+        bindDevice.model = model
+        bindDevice.gatewayUUId = XySmartSdk.scanGatewayUUId
+        Business.Instance.bindDevice(info: bindDevice, onSuccess: { b in
+            XySmartSdk.scanDeviceonSuccess?(b.device!)
+            XySmartSdk.scanDeviceonSuccess = nil
+            
+            XySmartSdk.isInScan = false
+            Business.Instance.stopDeviceScan(uuid: XySmartSdk.scanGatewayUUId!,onSuccess: { res in
+                NSLog("stopDeviceScan success")
+            },onFailed:{ e in
+                NSLog("stopDeviceScan error")
+            })
+            
+            XySmartSdk.scanGatewayUUId = nil
+        },onFailed:{e in
+            XySmartSdk.scanDeviceononFailed?(e)
+            XySmartSdk.scanDeviceononFailed = nil
+            XySmartSdk.scanGatewayUUId = nil
+            XySmartSdk.isInScan = false
+        })
+        if(XySmartSdk.scanTopic != nil){
+            Business.Instance.unsubTopic(topic: XySmartSdk.scanTopic!)
+        }
+    }
+    
     func mqtt5(_ mqtt5: CocoaMQTT5, didReceiveMessage message: CocoaMQTT5Message, id: UInt16, publishData: MqttDecodePublish?) {
         // NSLog("Received message: \(message.string) from topic: \(message.topic)")
         
@@ -41,7 +69,11 @@ class MyDelegate: CocoaMQTT5Delegate{
             NSLog("messag type: \(result.messageType!)")
             
             
-            
+            if(result.messageType == "Bind"){
+                let new_result:MqttNewDataMessage = try decoder.decode(MqttNewDataMessage.self,from: data)
+                
+                activeDeice(uuid: new_result.deviceStatusList![0].uuid!,model: new_result.deviceStatusList![0].model!);
+            }
             
             // 绑定子设备
             if (result.messageType == "bind") { // || (data.messageType == "control.prop" && data.data!![0].code == "SWBuildID")
@@ -49,31 +81,8 @@ class MyDelegate: CocoaMQTT5Delegate{
                 if (isNullOrempty(str: uuid) || isNullOrempty(str: result.data![0].model) || isNullOrempty(str: XySmartSdk.scanGatewayUUId)) {
                     return;
                 }
-                var bindDevice = BindDeviceInfo()
-                bindDevice.uuid = uuid
-                bindDevice.model = result.data![0].model!
-                bindDevice.gatewayUUId = XySmartSdk.scanGatewayUUId
-                Business.Instance.bindDevice(info: bindDevice, onSuccess: { b in
-                    XySmartSdk.scanDeviceonSuccess?(b.device!)
-                    XySmartSdk.scanDeviceonSuccess = nil
-                    
-                    XySmartSdk.isInScan = false
-                    Business.Instance.stopDeviceScan(uuid: XySmartSdk.scanGatewayUUId!,onSuccess: { res in
-                        print("stopDeviceScan success")
-                    },onFailed:{ e in
-                        print("stopDeviceScan error")
-                    })
-                    
-                    XySmartSdk.scanGatewayUUId = nil
-                },onFailed:{e in
-                    XySmartSdk.scanDeviceononFailed?(e)
-                    XySmartSdk.scanDeviceononFailed = nil
-                    XySmartSdk.scanGatewayUUId = nil
-                    XySmartSdk.isInScan = false
-                })
-                if(XySmartSdk.scanTopic != nil){
-                    Business.Instance.unsubTopic(topic: XySmartSdk.scanTopic!)
-                }
+                let model = result.data![0].model!
+                activeDeice(uuid: uuid!,model: model)
                 
             }
         } catch let error {

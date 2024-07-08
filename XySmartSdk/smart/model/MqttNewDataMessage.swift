@@ -6,3 +6,7 @@
 //
 
 import Foundation
+struct MqttNewDataMessage: Codable  {
+    var messageType: String?
+    var deviceStatusList: [MqttData]?
+}
