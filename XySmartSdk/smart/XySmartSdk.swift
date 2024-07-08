@@ -148,8 +148,16 @@ public class XySmartSdk: NSObject {
     public static func activateXyWIFIDevice(ssid:String?,password:String?,homeId:String,  onSuccess: @escaping (Device) -> Void = { _ in },
                                             onFailed: @escaping (SdkError) -> Void = { _ in }){
         let thread = Thread(){
+            
+            if(self.inActive){
+                let error = SdkError(code: SdkErrorType.DeviceInAcvtive.code,message:"设备激活中")
+                onFailed(error)
+            }
+            self.inActive = true
+            
             bleUtil = BleUtil();
             Thread.sleep(forTimeInterval: 1.0)
+            
             
             bleUtil?.startActive(ssid:ssid,password:password,homeId:homeId,onSuccess: { d in
                 clearActiveConfig()
@@ -165,6 +173,7 @@ public class XySmartSdk: NSObject {
                 if((nowTime - lastTime) * 1000 > 60 * 1000 && self.inActive){
                     let e = SdkError(code: SdkErrorType.TIMEOUT.code, message: "active time out")
                     NSLog("active time out")
+                    clearActiveConfig()
                     onFailed(e)
                     break;
                 }else if(self.inActive){

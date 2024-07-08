@@ -24,6 +24,7 @@ enum SdkErrorType {
     case DeviceTypeError
     case DeviceActivatedError
     case BleConnectError
+    case DeviceInAcvtive
     case OtherError
     
     var code: Int {
@@ -55,6 +56,8 @@ enum SdkErrorType {
             return 3002
         case .OtherError:
             return 9999
+        case .DeviceInAcvtive:
+            return 6007
         }
         
     }
@@ -81,6 +84,8 @@ enum SdkErrorType {
             return "connect ble error"
         case .OtherError:
             return "other error"
+        case .DeviceInAcvtive:
+            return "in active"
         }
     }
 }
