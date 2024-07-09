@@ -85,7 +85,8 @@ public class XySmartSdk: NSObject {
             var lastTime = Date().timeIntervalSince1970
             while(true){
                 var nowTime = Date().timeIntervalSince1970
-                if((nowTime - lastTime) * 1000 > 30 * 1000 && isInScan){
+                let scanTime = Double(seconds + 5) * 1000
+                if((nowTime - lastTime) * 1000 > scanTime && isInScan){
                     scanDeviceonSuccess = nil
                     scanDeviceononFailed = nil
                     scanGatewayUUId = nil
