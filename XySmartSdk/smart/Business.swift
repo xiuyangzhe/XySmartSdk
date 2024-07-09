@@ -19,12 +19,12 @@ class Business: NSObject {
                       onSuccess: @escaping () -> Void = {  },
                       onFailed: @escaping (SdkError) -> Void = { _ in }){
         
-        print("init initBusiness")
+        NSLog("init initBusiness")
         
         self.clientId = clientId
         self.clientSecret = clientSecret
         
-        mqttMessageInit()
+        mqttMessageInit(clientId:clientId,clientSecret:clientSecret)
         
         appLogin {
             onSuccess()
@@ -212,11 +212,12 @@ class Business: NSObject {
      let myDelegate = MyDelegate()
      
      let mqtt5 = CocoaMQTT5(clientID: "ios_" + String(ProcessInfo().processIdentifier), host: "iot.greytechnology.top")
-     func mqttMessageInit() {
+     func mqttMessageInit(clientId: String,
+                          clientSecret: String) {
         ///MQTT 5.0
         
         
-         mqtt5.allowUntrustCACertificate = true
+        mqtt5.allowUntrustCACertificate = true
         let connectProperties = MqttConnectProperties()
         connectProperties.topicAliasMaximum = 0
         connectProperties.sessionExpiryInterval = 0
@@ -224,8 +225,8 @@ class Business: NSObject {
         connectProperties.maximumPacketSize = 500
         mqtt5.connectProperties = connectProperties
 
-        mqtt5.username = "user1"
-        mqtt5.password = "Passw0rD1"
+        mqtt5.username = clientId
+        mqtt5.password = clientSecret
 //        mqtt5.willMessage = CocoaMQTT5Message(topic: "/will", string: "dieout")
         mqtt5.keepAlive = 60
         mqtt5.delegate = myDelegate
@@ -239,7 +240,8 @@ class Business: NSObject {
 //             print("Did connect to MQTT server with ack: \(ack)")
 //         }
          
-         let result = mqtt5.connect(timeout: 5)
+        let result = mqtt5.connect(timeout: 5)
+        Thread.sleep(forTimeInterval: 1.0)
         print(result)
     }
     func subTopic(topic: String){

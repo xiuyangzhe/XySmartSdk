@@ -14,19 +14,23 @@ class MyDelegate: CocoaMQTT5Delegate{
         return str == nil || str!.isEmpty
     }
     func mqtt5(_ mqtt5: CocoaMQTT5, didConnectAck ack: CocoaMQTTCONNACKReasonCode, connAckData: MqttDecodeConnAck?) {
-        print("mq server connected")
+        NSLog("mq server connected")
+        
+        if(XySmartSdk.scanTopic != nil){
+            Business.Instance.subTopic(topic: XySmartSdk.scanTopic!)
+        }
     }
     
     func mqtt5(_ mqtt5: CocoaMQTT5, didPublishMessage message: CocoaMQTT5Message, id: UInt16) {
-        print("mqtt didPublishMessage")
+        NSLog("mqtt didPublishMessage")
     }
     
     func mqtt5(_ mqtt5: CocoaMQTT5, didPublishAck id: UInt16, pubAckData: MqttDecodePubAck?) {
-        print("mqtt didPublishAck")
+        NSLog("mqtt didPublishAck")
     }
     
     func mqtt5(_ mqtt5: CocoaMQTT5, didPublishRec id: UInt16, pubRecData: MqttDecodePubRec?) {
-        print("mqtt5 didPublishRec")
+        NSLog("mqtt5 didPublishRec")
     }
     
     func activeDeice(uuid: String, model:String){
