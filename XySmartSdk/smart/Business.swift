@@ -359,7 +359,7 @@ class Business: NSObject {
         task.resume()
     }
     
-    func startDeviceScan(id: String, onSuccess: @escaping (StartDeviceScanResult) -> Void = { _ in  }, onFailed: @escaping (SdkError) -> Void = { _ in }){
+    func startDeviceScan(seconds: Int,id: String, onSuccess: @escaping (StartDeviceScanResult) -> Void = { _ in  }, onFailed: @escaping (SdkError) -> Void = { _ in }){
         
         // 创建URL对象
         let url = URL(string: serverUrl + "/api/appSdk/startDeviceScanByUUID/\(id)")!
@@ -376,6 +376,14 @@ class Business: NSObject {
 
         // 添加请求头
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let params = ["seconds": seconds]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+        } catch let error {
+            print("Error serializing JSON: \(error.localizedDescription)")
+        }
+        
 
         // 创建一个数据任务
         let task = session.dataTask(with: request) { (data, response, error) in

@@ -52,34 +52,32 @@ public class XySmartSdk: NSObject {
     public static var scanTopic: String?
     
     public static var isInScan = false
-    
-    public static func  scanDevice(uuid: String,
+    public static func  scanDeviceByTime(seconds: Int, uuid: String,
                                    onSuccess: @escaping (Device) -> Void = { _ in },
-                                   onFailed: @escaping (SdkError) -> Void = { _ in }){
-        
+                                         onFailed: @escaping (SdkError) -> Void = { _ in }){
         // subscribe
-        // start time 30s and stop
+        // start by time scan and stop
         // auto unsubscribe
         if(isInScan){
             onFailed(SdkError(code: 6006,message: "in scan device"))
             return
         }
         let thread = Thread(){
-            print("start scan")
+            NSLog("start scan")
             isInScan = true
             
             scanDeviceonSuccess = onSuccess
             scanDeviceononFailed = onFailed
             scanGatewayUUId = uuid
             
-            Business.Instance.startDeviceScan(id: uuid, onSuccess: { d in
+            Business.Instance.startDeviceScan(seconds: seconds, id: uuid, onSuccess: { d in
                 Business.Instance.subTopic(topic: d.scanTopic!)
                 scanTopic = d.scanTopic!
             },onFailed:{e in
                 scanDeviceonSuccess = nil
                 scanDeviceononFailed = nil
                 scanGatewayUUId = nil
-                print("stop scan")
+                NSLog("stop scan")
                 isInScan = false
                 onFailed(e)
             })
@@ -91,7 +89,7 @@ public class XySmartSdk: NSObject {
                     scanDeviceonSuccess = nil
                     scanDeviceononFailed = nil
                     scanGatewayUUId = nil
-                    print("stop scan")
+                    NSLog("stop scan")
                     isInScan = false
                     if(scanTopic != nil){
                         Business.Instance.unsubTopic(topic: scanTopic!)
@@ -101,7 +99,7 @@ public class XySmartSdk: NSObject {
                     break;
                 }else if(isInScan){
                     Thread.sleep(forTimeInterval: 1.0)
-                    print("in scan")
+                    NSLog("in scan")
                 }
                 if(!isInScan){
                     break;
@@ -110,7 +108,15 @@ public class XySmartSdk: NSObject {
         }
         
         thread.start()
+    }
+    
+    
+    public static func  scanDevice(uuid: String,
+                                   onSuccess: @escaping (Device) -> Void = { _ in },
+                                   onFailed: @escaping (SdkError) -> Void = { _ in }){
+        
 
+        scanDeviceByTime(seconds: 30,uuid:uuid,onSuccess:onSuccess,onFailed:onFailed)
         
     }
 
@@ -119,11 +125,17 @@ public class XySmartSdk: NSObject {
                                        onFailed: @escaping (SdkError) -> Void = { _ in }){
         // send stop
         // unsubscribe
+        scanDeviceonSuccess = nil
+        scanDeviceononFailed = nil
+        scanGatewayUUId = nil
         isInScan = false
+        
         Business.Instance.stopDeviceScan(uuid: uuid, onSuccess: { d in
             if(scanTopic != nil){
+                
                 Business.Instance.unsubTopic(topic: scanTopic!)
             }
+            scanTopic = nil
             
             onSuccess()
         }, onFailed: {e in

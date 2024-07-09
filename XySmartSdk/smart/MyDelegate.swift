@@ -36,21 +36,8 @@ class MyDelegate: CocoaMQTT5Delegate{
         bindDevice.gatewayUUId = XySmartSdk.scanGatewayUUId
         Business.Instance.bindDevice(info: bindDevice, onSuccess: { b in
             XySmartSdk.scanDeviceonSuccess?(b.device!)
-            XySmartSdk.scanDeviceonSuccess = nil
-            
-            XySmartSdk.isInScan = false
-            Business.Instance.stopDeviceScan(uuid: XySmartSdk.scanGatewayUUId!,onSuccess: { res in
-                NSLog("stopDeviceScan success")
-            },onFailed:{ e in
-                NSLog("stopDeviceScan error")
-            })
-            
-            XySmartSdk.scanGatewayUUId = nil
         },onFailed:{e in
             XySmartSdk.scanDeviceononFailed?(e)
-            XySmartSdk.scanDeviceononFailed = nil
-            XySmartSdk.scanGatewayUUId = nil
-            XySmartSdk.isInScan = false
         })
         if(XySmartSdk.scanTopic != nil){
             Business.Instance.unsubTopic(topic: XySmartSdk.scanTopic!)
