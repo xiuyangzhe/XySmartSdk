@@ -39,9 +39,6 @@ class MyDelegate: CocoaMQTT5Delegate{
         },onFailed:{e in
             XySmartSdk.scanDeviceononFailed?(e)
         })
-        if(XySmartSdk.scanTopic != nil){
-            Business.Instance.unsubTopic(topic: XySmartSdk.scanTopic!)
-        }
     }
     
     func mqtt5(_ mqtt5: CocoaMQTT5, didReceiveMessage message: CocoaMQTT5Message, id: UInt16, publishData: MqttDecodePublish?) {
